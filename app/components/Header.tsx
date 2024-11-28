@@ -56,56 +56,6 @@ const Header = () => {
         >
           Выбрать историю
         </Link>
-        <Link
-          href="/profile"
-          className={`hover:bg-gray-300 text-center ${
-            isDarkTheme
-              ? "text-gray-300 hover:text-black"
-              : "text-gray-700 hover:text-black"
-          } transition duration-200 rounded-lg px-1 py-1 text-sm md:text-base`}
-        >
-          Профиль
-        </Link>
-        <Link
-          href="/instructions"
-          className={`hover:bg-gray-300 text-center ${
-            isDarkTheme
-              ? "text-gray-300 hover:text-black"
-              : "text-gray-700 hover:text-black"
-          } transition duration-200 rounded-lg px-1 py-1 text-sm md:text-base`}
-        >
-          Инструкция
-        </Link>
-        <Link
-          href="/questions"
-          className={`hover:bg-gray-300 text-center ${
-            isDarkTheme
-              ? "text-gray-300 hover:text-black"
-              : "text-gray-700 hover:text-black"
-          } transition duration-200 rounded-lg px-1 py-1 text-sm md:text-base`}
-        >
-          Вопросы
-        </Link>
-        <Link
-          href="/aboutProject"
-          className={`hover:bg-gray-300 text-center ${
-            isDarkTheme
-              ? "text-gray-300 hover:text-black"
-              : "text-gray-700 hover:text-black"
-          } transition duration-200 rounded-lg px-1 py-1 text-sm md:text-base`}
-        >
-          О проекте
-        </Link>
-        <Link
-          href="/donations"
-          className={`hover:bg-gray-300 text-center ${
-            isDarkTheme
-              ? "text-gray-300 hover:text-black"
-              : "text-gray-700 hover:text-black"
-          } transition duration-200 rounded-lg px-1 py-1 text-sm md:text-base`}
-        >
-          Пожертвования
-        </Link>
       </nav>
       <div className="flex flex-col md:flex-row gap-2">
         <Link
