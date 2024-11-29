@@ -1,5 +1,5 @@
 import Image from "next/image";
-import themasImage from "../../public/img/thema.png";
+import themasImage from "../../public/images/thema.png";
 
 interface ThemesProps {
   toggleTheme: () => void;
