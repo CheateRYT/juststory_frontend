@@ -56,7 +56,7 @@ const Header = () => {
 						isDarkTheme ? 'bg-white text-black' : 'bg-black text-white'
 					} transition duration-200 rounded-full px-2 py-1 text-sm md:px-4 md:py-2 md:text-base hover:bg-gray-500`}
 				>
-					Войти
+					Войтии
 				</Link>
 				<Link
 					href='/register'
