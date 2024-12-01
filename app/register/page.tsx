@@ -1,6 +1,5 @@
-const Register = () => {
-    return (<h1>Зарегистрироваться</h1>);
-    
+const page = () => {
+	return <div>page</div>
 }
 
-export default Register;
+export default page

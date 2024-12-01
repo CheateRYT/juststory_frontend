@@ -1,12 +1,5 @@
-import Header from "./components/Header";
+import Header from './src/entities/Header/Header'
 
-const Home = () => {
-  return (
-    <div>
-      <Header />
-      {/* Остальная часть вашего контента */}
-    </div>
-  );
-};
-
-export default Home;
+export default function Home() {
+	return <Header />
+}
