@@ -1,5 +1,7 @@
-const page = () => {
-	return <div>page</div>
-}
+'use client'
 
-export default page
+import Login from '../src/entities/Login/Login'
+
+const Page = () => <Login />
+
+export default Page

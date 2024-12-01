@@ -1,5 +1,6 @@
-const page = () => {
-	return <div>page</div>
-}
+'use client'
+import Register from '../src/entities/Register/Register'
 
-export default page
+const Page = () => <Register />
+
+export default Page

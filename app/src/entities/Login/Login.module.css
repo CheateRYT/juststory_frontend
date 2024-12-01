@@ -1,0 +1,78 @@
+/* styles/Auth.module.css */
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #121212; /* Темный фон */
+	color: #ffffff; /* Белый текст */
+	font-family: Arial, sans-serif;
+}
+
+.formContainer {
+	background-color: #1e1e1e; /* Более светлый фон для формы */
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	width: 300px;
+	text-align: center;
+}
+
+.title {
+	margin-bottom: 1.5rem;
+	font-size: 1.5rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.input {
+	padding: 0.75rem;
+	margin-bottom: 1rem;
+	border: none;
+	border-radius: 4px;
+	background-color: #333333; /* Фон полей ввода */
+	color: #ffffff; /* Цвет текста */
+}
+
+.input::placeholder {
+	color: #aaaaaa; /* Цвет плейсхолдера */
+}
+
+.button {
+	padding: 0.75rem;
+	border: none;
+	border-radius: 4px;
+	background-color: #6200ea; /* Цвет кнопки */
+	color: #ffffff;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.button:hover {
+	background-color: #3700b3; /* Цвет кнопки при наведении */
+}
+
+.registerText {
+	margin-top: 1rem;
+}
+
+.link {
+	color: #6200ea; /* Цвет ссылки */
+	text-decoration: none;
+}
+
+.link:hover {
+	text-decoration: underline; /* Подчеркивание ссылки при наведении */
+}
+
+.footer {
+	margin-top: auto;
+	padding: 1rem;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #aaaaaa; /* Цвет текста внизу */
+}

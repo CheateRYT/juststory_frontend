@@ -16,7 +16,7 @@ const Header = () => {
 								<li>
 									<Link
 										href='/login'
-										className='bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition'
+										className='bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition'
 									>
 										Войти
 									</Link>
@@ -24,7 +24,7 @@ const Header = () => {
 								<li>
 									<Link
 										href='/register'
-										className='bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition'
+										className='bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition'
 									>
 										Зарегистрироваться
 									</Link>
@@ -34,7 +34,7 @@ const Header = () => {
 					</div>
 				</div>
 			</header>
-			<div className='bg-blue-600 h-0.5 w-full' />
+			<div className='bg-purple-600 h-0.5 w-full' />
 		</div>
 	)
 }

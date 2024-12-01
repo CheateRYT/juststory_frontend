@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Logo = () => {
 	return (
 		<div className='flex flex-col items-start'>
-			<Link href='/' className='flex items-center text-3xl font-bold mb-1'>
+			<Link href='/' className='flex items-center text-4xl font-bold mb-1'>
 				<span className='text-white'>Just</span>
 				<span className='text-white'> Story</span>
 			</Link>
