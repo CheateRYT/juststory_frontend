@@ -1,5 +1,5 @@
 'use client'
-import Register from '../src/entities/Register/Register'
+import Register from '../../src/entities/Register/Register'
 
 const Page = () => <Register />
 

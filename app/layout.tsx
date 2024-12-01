@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-
+import StoreProvider from './StoreProvider'
 const geistSans = localFont({
 	src: './fonts/Butler.woff',
 	variable: '--font-butler',
@@ -24,12 +24,15 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				{children}
-			</body>
-		</html>
+		<StoreProvider>
+			<html lang='en'>
+				{' '}
+				<body
+					className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				>
+					{children}
+				</body>
+			</html>
+		</StoreProvider>
 	)
 }
