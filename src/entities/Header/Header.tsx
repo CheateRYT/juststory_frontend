@@ -1,40 +1,33 @@
 'use client'
 import Link from 'next/link'
 import Logo from '../../components/Logo/Logo'
+import styles from './Header.module.css'
 
 const Header = () => {
 	return (
-		<div className=' bg-black mx-auto'>
-			<header className=' mx-auto container  p-4 flex justify-between items-center bg-black text-white gap-2'>
-				<div className='flex items-center'>
+		<div className={styles.headerContainer}>
+			<header className={styles.header}>
+				<div className={styles.logoContainer}>
 					<Logo />
 				</div>
-				<div className='flex items-center justify-end'>
-					<div className='text-right'>
-						<nav className='container mx-auto pt-2 pb-4 font-bold'>
-							<ul className='flex justify-between gap-5 text-center'>
-								<li>
-									<Link
-										href='/login'
-										className='bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition'
-									>
-										Войти
-									</Link>
-								</li>
-								<li>
-									<Link
-										href='/register'
-										className='bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition'
-									>
-										Зарегистрироваться
-									</Link>
-								</li>
-							</ul>
-						</nav>
-					</div>
+				<div className={styles.navContainer}>
+					<nav className={styles.nav}>
+						<ul className={styles.navList}>
+							<li>
+								<Link href='/login' className={styles.navItem}>
+									Войти
+								</Link>
+							</li>
+							<li>
+								<Link href='/register' className={styles.navItem}>
+									Зарегистрироваться
+								</Link>
+							</li>
+						</ul>
+					</nav>
 				</div>
 			</header>
-			<div className='bg-purple-600 h-0.5 w-full' />
+			<div className={styles.separator} />
 		</div>
 	)
 }

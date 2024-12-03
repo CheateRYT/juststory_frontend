@@ -1,0 +1,64 @@
+/* Header.module.css */
+.headerContainer {
+	background-color: black;
+	margin: auto;
+}
+
+.header {
+	margin: auto;
+	padding: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: black;
+	color: white;
+	gap: 8px;
+	flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+}
+
+.logoContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex: 1; /* Занимает доступное пространство */
+}
+
+.navContainer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1; /* Занимает доступное пространство */
+}
+
+.nav {
+	margin: auto;
+	padding-top: 8px;
+	padding-bottom: 16px;
+	font-weight: bold;
+}
+
+.navList {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	text-align: center;
+	flex-wrap: wrap; /* Позволяет элементам списка переноситься на новую строку */
+}
+
+.navItem {
+	background-color: #6b46c1; /* purple-600 */
+	color: white;
+	padding: 8px 16px;
+	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+.navItem:hover {
+	background-color: #805ad5; /* purple-700 */
+}
+
+.separator {
+	background-color: #6b46c1; /* purple-600 */
+	height: 2px;
+	width: 100%;
+}

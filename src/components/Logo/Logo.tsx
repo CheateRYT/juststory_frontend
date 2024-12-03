@@ -1,13 +1,14 @@
 import Link from 'next/link'
+import styles from './Logo.module.css'
 
 const Logo = () => {
 	return (
-		<div className='flex flex-col items-start'>
-			<Link href='/' className='flex items-center text-4xl font-bold mb-1'>
-				<span className='text-white'>Just</span>
-				<span className='text-white'> Story</span>
+		<div className={styles.logoContainer}>
+			<Link href='/' className={styles.logoLink}>
+				<span className={styles.logoText}>Just</span>
+				<span className={styles.logoText}> Story</span>
 			</Link>
-			<span className='text-white text-sm'>Powered by Levio</span>
+			<span className={styles.poweredBy}>Powered by Levio</span>
 		</div>
 	)
 }

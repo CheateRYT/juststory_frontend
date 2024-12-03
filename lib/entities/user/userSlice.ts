@@ -58,7 +58,7 @@ const userSlice = createSlice({
 			})
 			.addCase(loginUser.rejected, (state, action) => {
 				state.loading = false
-				state.error = action.error.message || 'Ошибка входа'
+				state.error = action.error.message || 'Вы ввели неправильные данные!'
 			})
 	},
 })
