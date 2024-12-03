@@ -8,7 +8,7 @@ const Logo = () => {
 				<span className={styles.logoText}>Just</span>
 				<span className={styles.logoText}> Story</span>
 			</Link>
-			<span className={styles.poweredBy}>Powered by Levio</span>
+			<span className={styles.poweredBy}>Powered by GigaChat AI</span>
 		</div>
 	)
 }

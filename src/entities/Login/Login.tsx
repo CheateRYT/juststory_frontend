@@ -61,7 +61,7 @@ const Login: React.FC = () => {
 					</Link>
 				</p>
 			</div>
-			<footer className={styles.footer}>JustStroy powered by Levio</footer>
+			<footer className={styles.footer}>JustStroy powered by GigaChat</footer>
 		</div>
 	)
 }

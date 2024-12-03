@@ -1,5 +1,5 @@
-import Header from '../src/entities/Header/Header'
+import Main from '@/src/entities/Main/Main'
 
 export default function Home() {
-	return <Header />
+	return <Main />
 }
