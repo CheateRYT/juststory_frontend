@@ -1,192 +1,193 @@
 .container {
-	background-color: black;
-	color: white;
-	min-height: 100vh; /* Занимает всю высоту экрана */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
+  background-color: black;
+  font-family: var(--font-geist-monomakh), Arial, sans-serif;
+  color: white;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .justStory {
-	text-align: center;
+  text-align: center;
 }
 
 .title {
-	color: #6b46c1; /* Фиолетовый цвет */
-	font-size: 2.5rem;
-	opacity: 0; /* Начальное состояние для анимации */
-	animation: fadeIn 2s forwards; /* Анимация появления */
+  color: #6b46c1; /* Фиолетовый цвет */
+  font-size: 2.5rem;
+  opacity: 0; /* Начальное состояние для анимации */
+  animation: fadeIn 2s forwards; /* Анимация появления */
 }
 
 .description {
-	color: white; /* Белый цвет текста */
-	font-size: 1.2rem;
-	margin-bottom: 15px;
-	margin-top: 20px;
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  color: white; /* Белый цвет текста */
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .playButton {
-	background-color: #6b46c1; /* Фиолетовая кнопка */
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	margin-top: 20px;
-	cursor: pointer;
-	transition: transform 0.3s;
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  background-color: #6b46c1; /* Фиолетовая кнопка */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .playButton:hover {
-	transform: scale(1.05); /* Увеличение кнопки при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
 }
 
 .aiBlock {
-	background-color: #6b46c1; /* Фиолетовый фон для блока JustStory AI */
-	color: white; /* Белый цвет текста */
-	padding: 20px;
-	border-radius: 8px;
-	margin-top: 30px;
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  background-color: #6b46c1; /* Фиолетовый фон для блока JustStory AI */
+  color: white; /* Белый цвет текста */
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .aiTitle {
-	font-size: 2rem;
-	margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .aiSubTitle {
-	font-size: 1.5rem;
-	margin-top: 20px;
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 .aiDescription {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .cardContainer {
-	display: flex;
-	justify-content: space-around;
-	width: 100%;
-	margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .card {
-	background-color: #1c1c1c; /* Темно-серый фон для карточки */
-	color: white; /* Белый цвет текста */
-	padding: 20px;
-	border-radius: 8px;
-	text-align: center;
-	width: 30%; /* Ширина карточки */
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  background-color: #1c1c1c; /* Темно-серый фон для карточки */
+  color: white; /* Белый цвет текста */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 30%; /* Ширина карточки */
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .cardTitle {
-	font-size: 1.5rem;
-	margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .cardButton {
-	background-color: #6b46c1; /* Фиолетовая кнопка */
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: transform 0.3s;
+  background-color: #6b46c1; /* Фиолетовая кнопка */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .cardButton:hover {
-	transform: scale(1.05); /* Увеличение кнопки при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
 }
 
 .scenarioTitle {
-	color: #6b46c1; /* Фиолетовый цвет */
-	font-size: 2rem;
-	margin: 20px 0; /* Отступ сверху и снизу */
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  color: #6b46c1; /* Фиолетовый цвет */
+  font-size: 2rem;
+  margin: 20px 0; /* Отступ сверху и снизу */
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .tariffsTitle {
-	color: #6b46c1; /* Фиолетовый цвет */
-	font-size: 2rem;
-	margin: 30px 0; /* Отступ сверху и снизу */
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  color: #6b46c1; /* Фиолетовый цвет */
+  font-size: 2rem;
+  margin: 30px 0; /* Отступ сверху и снизу */
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .tariffContainer {
-	display: flex;
-	justify-content: space-around;
-	width: 100%;
-	margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .tariffCard {
-	background-color: #2c2c2c; /* Темно-серый фон для тарифных карточек */
-	color: white; /* Белый цвет текста */
-	padding: 20px;
-	border-radius: 8px;
-	text-align: center;
-	width: 45%; /* Ширина тарифной карточки */
-	opacity: 0; /* Начальное состояние для анимации */
-	transform: translateY(-20px); /* Начальное положение для "слайда" */
-	animation: slideIn 0.5s forwards; /* Анимация слайда */
+  background-color: #2c2c2c; /* Темно-серый фон для тарифных карточек */
+  color: white; /* Белый цвет текста */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 45%; /* Ширина тарифной карточки */
+  opacity: 0; /* Начальное состояние для анимации */
+  transform: translateY(-20px); /* Начальное положение для "слайда" */
+  animation: slideIn 0.5s forwards; /* Анимация слайда */
 }
 
 .tariffTitle {
-	font-size: 1.8rem;
-	color: #6b46c1;
-	margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #6b46c1;
+  margin-bottom: 10px;
 }
 
 .tariffFeature {
-	font-size: 1.2rem;
-	margin: 5px 0;
+  font-size: 1.2rem;
+  margin: 5px 0;
 }
 
 .tariffPrice {
-	font-size: 1.5rem;
-	margin: 10px 0;
+  font-size: 1.5rem;
+  margin: 10px 0;
 }
 
 .tariffButton {
-	background-color: #6b46c1; /* Фиолетовая кнопка */
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: transform 0.3s;
+  background-color: #6b46c1; /* Фиолетовая кнопка */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .tariffButton:hover {
-	transform: scale(1.05); /* Увеличение кнопки при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
 }
 
 @keyframes fadeIn {
-	to {
-		opacity: 1; /* Конечное состояние анимации */
-	}
+  to {
+    opacity: 1; /* Конечное состояние анимации */
+  }
 }
 
 @keyframes slideIn {
-	to {
-		opacity: 1; /* Конечное состояние анимации */
-		transform: translateY(0); /* Конечное положение */
-	}
+  to {
+    opacity: 1; /* Конечное состояние анимации */
+    transform: translateY(0); /* Конечное положение */
+  }
 }
