@@ -1,0 +1,43 @@
+.footerContainer {
+  background-color: black;
+}
+
+.footer {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  font-weight: bold;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+}
+
+.navItem {
+  color: #6b46c1; /* purple-600 */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navItem:hover {
+  color: #805ad5; /* purple-700 */
+}
+.separator {
+  background-color: #6b46c1; /* purple-600 */
+  height: 2px;
+  width: 100%;
+}
