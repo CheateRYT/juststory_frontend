@@ -176,7 +176,7 @@
 }
 
 .tariffButton:hover {
-  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  transform: scale(1.06); /* Увеличение кнопки при наведении */
 }
 
 @keyframes fadeIn {
