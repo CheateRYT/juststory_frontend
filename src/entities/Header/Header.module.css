@@ -1,10 +1,11 @@
-/* Header.module.css */
 .headerContainer {
+	font-family: var(--font-butler), Arial, Helvetica, sans-serif !important;
 	background-color: black;
 	margin: auto;
 }
 
 .header {
+	font-family: var(--font-butler), Arial, Helvetica, sans-serif !important;
 	margin: auto;
 	padding: 16px;
 	display: flex;
@@ -61,4 +62,22 @@
 	background-color: #6b46c1; /* purple-600 */
 	height: 2px;
 	width: 100%;
+}
+
+.blocks {
+	display: flex;
+	justify-content: space-between;
+	height: 90vh; /* Высота блоков 90% от высоты окна */
+}
+
+.block {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white;
+	flex: 1; /* Каждый блок занимает равное пространство */
+	margin: 10px; /* Отступ между блоками */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px; /* Размер шрифта текста в блоках */
+	border-radius: 10px; /* Закругленные углы */
 }

@@ -1,5 +1,7 @@
-"use client";
-const Page = () => {
-  return <div>Home</div>;
-};
-export default Page;
+'use client'
+
+import Home from '@/src/entities/Home/Home'
+
+const Page = () => <Home />
+
+export default Page
