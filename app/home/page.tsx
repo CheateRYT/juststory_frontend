@@ -1,5 +1,5 @@
-'use client'
+"use client";
 const Page = () => {
-	return <div>Page</div>
-}
-export default Page
+  return <div>Home</div>;
+};
+export default Page;
