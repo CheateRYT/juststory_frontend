@@ -25,41 +25,43 @@
 	border-radius: 10px; /* Закругленные углы */
 	text-align: center;
 	cursor: pointer; /* Указывает, что элемент кликабельный */
-	transition: background-color 0.3s; /* Плавный переход цвета фона */
+	transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Плавный переход цвета фона, трансформации и тени */
 	display: flex; /* Используем flex для центрирования текста */
 	justify-content: center; /* Центрируем текст по горизонтали */
 	align-items: center; /* Центрируем текст по вертикали */
 	font-family: var(--font-geist-monomakh), Arial, sans-serif; /* Указанный шрифт */
-	font-size: 24px; /* Начальный размер шрифта */
+	font-size: 30px; /* Начальный размер шрифта */
 }
 
 .card:hover {
 	background-color: #805ad5; /* Цвет при наведении */
+	transform: scale(1.05); /* Увеличение карточки при наведении */
+	box-shadow: 0 4px 20px #ffffff; /* Тень фиолетового цвета */
 }
 
 /* Медиа-запросы для адаптивности */
 @media (max-width: 1200px) {
 	.card {
-		font-size: 22px; /* Уменьшаем размер шрифта для экранов меньше 1200px */
+		font-size: 28px; /* Уменьшаем размер шрифта для экранов меньше 1200px */
 	}
 }
 
 @media (max-width: 992px) {
 	.card {
-		font-size: 20px; /* Уменьшаем размер шрифта для экранов меньше 992px */
+		font-size: 26px; /* Уменьшаем размер шрифта для экранов меньше 992px */
 	}
 }
 
 @media (max-width: 768px) {
 	.card {
-		font-size: 18px; /* Уменьшаем размер шрифта для экранов меньше 768px */
+		font-size: 24px; /* Уменьшаем размер шрифта для экранов меньше 768px */
 		width: 45%; /* Увеличиваем ширину карточек для мобильных устройств */
 	}
 }
 
 @media (max-width: 576px) {
 	.card {
-		font-size: 16px; /* Уменьшаем размер шрифта для экранов меньше 576px */
+		font-size: 22px; /* Уменьшаем размер шрифта для экранов меньше 576px */
 		width: 90%; /* Ширина карточек на мобильных устройствах */
 	}
 }
