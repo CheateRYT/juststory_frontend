@@ -1,0 +1,118 @@
+.container {
+	font-family: var(--font-geist-monomakh), Arial, sans-serif;
+	background-color: black;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	height: 100vh; /* Задает высоту на всю высоту экрана */
+}
+.gameContent {
+	flex: 1; /* Заполняет оставшееся пространство между Header и Footer */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.header {
+	font-size: 35px;
+	color: white; /* Белый цвет заголовка */
+	margin-bottom: 20px;
+}
+.historyArea {
+	background-color: #242424; /* Темный фон */
+	color: #6b46c1; /* Фиолетовый текст */
+	width: 100%; /* Ширина 100% */
+	max-width: 50%; /* Максимальная ширина 50% */
+	max-height: 700px;
+	height: 700px;
+	font-size: 30px;
+	padding: 10px; /* Отступы внутри блока */
+	border-radius: 10px; /* Закругленные углы */
+	overflow-y: auto; /* Скроллинг по вертикали, если контент превышает высоту */
+	margin-bottom: 20px; /* Отступ снизу */
+	box-sizing: border-box; /* Учитываем отступы и границы в расчете ширины и высоты */
+}
+/* Стили для кастомного скроллбара */
+.historyArea::-webkit-scrollbar {
+	width: 8px; /* Ширина скроллбара */
+}
+.historyArea::-webkit-scrollbar-thumb {
+	background-color: #6b46c1; /* Цвет скроллбара */
+	border-radius: 10px; /* Закругленные углы скроллбара */
+}
+.historyArea::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.3); /* Цвет фона трека скроллбара */
+}
+.gameScene {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white; /* Белый текст */
+	padding: 20px;
+	border-radius: 10px; /* Закругленные углы */
+	text-align: center;
+	margin-bottom: 20px;
+}
+.inputContainer {
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	gap: 30px;
+}
+.inputField {
+	font-size: 24px;
+	font-family: sans-serif;
+	margin-right: 10px; /* Отступ справа */
+	color: #6b46c1; /* Цвет текста в инпуте */
+	padding: 15px; /* Отступы внутри блока */
+	border: 1px solid #ccc; /* Граница инпута */
+	border-radius: 5px; /* Закругленные углы */
+	width: 100%; /* Ширина 100% */
+	height: 100px; /* Высота для textarea */
+	resize: none; /* Запрет изменения размера */
+}
+.sendButton {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white; /* Белый текст */
+	border: none;
+	padding: 10px 20px;
+	font-size: 24px;
+	border-radius: 5px; /* Закругленные углы */
+	cursor: pointer; /* Указывает, что элемент кликабельный */
+	margin-left: 10px; /* Отступ слева */
+	transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+.sendButton:hover {
+	background-color: #805ad5; /* Цвет при наведении */
+}
+.actionButton {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white; /* Белый текст */
+	border: none;
+	font-size: 24px;
+	padding: 10px 20px;
+	border-radius: 5px; /* Закругленные углы */
+	cursor: pointer; /* Указывает, что элемент кликабельный */
+	transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+.actionButton:hover {
+	background-color: #805ad5; /* Цвет при наведении */
+}
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal {
+	background-color: white; /* Цвет фона модального окна */
+	color: black; /* Цвет текста */
+	padding: 20px;
+	border-radius: 10px; /* Закругленные углы */
+	width: 400px; /* Ширина модального окна */
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для модального окна */
+}

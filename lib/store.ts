@@ -1,12 +1,15 @@
 // lib/store.ts
 import { configureStore } from '@reduxjs/toolkit'
-import userReducer from './entities/user/userSlice'
-
+import {
+	default as aiReducer,
+	default as userReducer,
+} from './entities/user/userSlice'
 // Создание Redux Store
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
 			user: userReducer,
+			ai: aiReducer,
 		},
 	})
 }

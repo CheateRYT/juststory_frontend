@@ -1,16 +1,17 @@
 'use client'
 import Footer from '@/src/entities/Footer/Footer'
 import Header from '@/src/entities/Header/Header'
+import { validateToken } from '@/src/utils/validateToken'
+import Cookies from 'js-cookie'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Games.module.css'
 
 const Games = () => {
 	const router = useRouter()
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [script, setScript] = useState('')
-
 	const cardsData = [
 		{
 			image: '/startScenesImg/stevekreeper.jpeg',
@@ -45,6 +46,19 @@ const Games = () => {
 			text: 'Русский мужик на зимней рыбалке поймал рыбу дракона',
 		},
 	]
+
+	useEffect(() => {
+		const token = Cookies.get('token')
+		if (token) {
+			validateToken(token).then(valid => {
+				if (!valid) {
+					router.push('/login')
+				}
+			})
+		} else {
+			router.push('/login')
+		}
+	}, [router])
 
 	const handleCardClick = (text: string) => {
 		const formattedText = text.replace(/\s+/g, '-').toLowerCase()
@@ -92,7 +106,6 @@ const Games = () => {
 				))}
 			</div>
 			<Footer />
-
 			{isModalOpen && (
 				<div className={styles.modalOverlay}>
 					<div className={styles.modal}>
