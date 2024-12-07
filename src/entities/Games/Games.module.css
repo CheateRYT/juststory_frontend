@@ -1,0 +1,65 @@
+.container {
+	font-family: var(--font-geist-monomakh), Arial, sans-serif;
+	background-color: black;
+	color: white;
+	height: 100vh; /* Задает высоту на всю высоту экрана */
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	margin-top: 20px;
+	display: flex;
+	font-size: 24px;
+	justify-content: right; /* Выравнивание текста и кнопки */
+	align-items: center;
+}
+
+.createButton {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white; /* Белый текст */
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px; /* Закругленные углы */
+	cursor: pointer; /* Указывает, что элемент кликабельный */
+	transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.createButton:hover {
+	background-color: #805ad5; /* Цвет при наведении */
+}
+
+.cardsContainer {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(300px, 1fr)
+	); /* Адаптивная сетка карточек */
+	gap: 15px; /* Промежуток между карточками */
+	margin: 20px;
+}
+
+.card {
+	background-color: #6b46c1; /* Фиолетовый цвет */
+	color: white; /* Белый текст */
+	padding: 10px;
+	border-radius: 10px; /* Закругленные углы */
+	text-align: center;
+	display: flex;
+	transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+	font-size: 22px;
+	flex-direction: column;
+	align-items: center;
+}
+
+.card:hover {
+	cursor: pointer;
+	background-color: #805ad5; /* Цвет при наведении */
+	transform: scale(1.05); /* Увеличение карточки при наведении */
+	box-shadow: 0 4px 20px rgba(107, 70, 193, 0.5); /* Тень фиолетового цвета */
+}
+
+.cardImage {
+	width: 100%; /* Ширина изображения 100% от карточки */
+	border-radius: 5px; /* Закругленные углы для изображения */
+}

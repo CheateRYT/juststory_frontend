@@ -1,10 +1,7 @@
-"use client";
-const page = () => {
-  return (
-    <div>
-      <h1>Games</h1>
-    </div>
-  );
-};
+'use client'
 
-export default page;
+import Games from '@/src/entities/Games/Games'
+
+const Page = () => <Games />
+
+export default Page
