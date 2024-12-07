@@ -3,18 +3,22 @@ import Cookies from 'js-cookie'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Logo from '../../components/Logo/Logo'
-import { validateToken } from '../../utils/validateToken' // Убедитесь, что путь к функции validateToken правильный
+import { validateToken } from '../../utils/validateToken'
 import styles from './Header.module.css'
 
 const Header = () => {
 	const [isTokenValid, setIsTokenValid] = useState(false)
+	const [isLoading, setIsLoading] = useState(true) // Состояние для отслеживания загрузки
 
 	useEffect(() => {
 		const token = Cookies.get('token')
 		if (token) {
 			validateToken(token).then(valid => {
 				setIsTokenValid(valid)
+				setIsLoading(false)
 			})
+		} else {
+			setIsLoading(false)
 		}
 	}, [])
 
@@ -24,7 +28,11 @@ const Header = () => {
 				<div className={styles.logoContainer}>
 					<Logo />
 				</div>
-				<div className={styles.navContainer}>
+				<div
+					className={`${styles.navContainer} ${
+						isLoading ? styles.fadeOut : styles.fadeIn
+					}`}
+				>
 					<nav className={styles.nav}>
 						<ul className={styles.navList}>
 							{isTokenValid ? (

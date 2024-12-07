@@ -69,7 +69,22 @@
 	justify-content: space-between;
 	height: 90vh; /* Высота блоков 90% от высоты окна */
 }
+.navContainer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1; /* Занимает доступное пространство */
+	opacity: 0; /* Начальное значение для анимации */
+	transition: opacity 0.5s ease; /* Плавный переход */
+}
 
+.fadeIn {
+	opacity: 1; /* Прозрачность 1 для отображения */
+}
+
+.fadeOut {
+	opacity: 0; /* Прозрачность 0 для скрытия */
+}
 .block {
 	background-color: #6b46c1; /* Фиолетовый цвет */
 	color: white;

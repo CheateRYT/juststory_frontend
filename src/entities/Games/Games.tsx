@@ -3,13 +3,13 @@ import Footer from '@/src/entities/Footer/Footer'
 import Header from '@/src/entities/Header/Header'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react' // Импортируем useState
+import { useState } from 'react'
 import styles from './Games.module.css'
 
 const Games = () => {
 	const router = useRouter()
-	const [isModalOpen, setIsModalOpen] = useState(false) // Состояние для управления модальным окном
-	const [script, setScript] = useState('') // Состояние для сценария
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [script, setScript] = useState('')
 
 	const cardsData = [
 		{
@@ -52,18 +52,17 @@ const Games = () => {
 	}
 
 	const handleOpenModal = () => {
-		setIsModalOpen(true) // Открываем модальное окно
+		setIsModalOpen(true)
 	}
 
 	const handleCloseModal = () => {
-		setIsModalOpen(false) // Закрываем модальное окно
+		setIsModalOpen(false)
 	}
 
 	const handleRunScript = () => {
-		// Форматируем текст сценария для маршрута
 		const formattedScript = script.replace(/\s+/g, '-').toLowerCase()
-		router.push(`/games/${formattedScript}`) // Переход на новый маршрут
-		handleCloseModal() // Закрываем модальное окно после запуска
+		router.push(`/games/${formattedScript}`)
+		handleCloseModal()
 	}
 
 	return (
@@ -93,7 +92,7 @@ const Games = () => {
 				))}
 			</div>
 			<Footer />
-			{/* Модальное окно */}
+
 			{isModalOpen && (
 				<div className={styles.modalOverlay}>
 					<div className={styles.modal}>
