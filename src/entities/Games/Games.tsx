@@ -20,7 +20,6 @@ const Games = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [imagePath, setImagePath] = useState('') // Состояние для пути к картинке
 	const [userScripts, setUserScripts] = useState([]) // Состояние для пользовательских сценариев
-
 	// Получаем сценарий из Redux
 	const script = useSelector(state => state.games.script)
 
@@ -36,10 +35,8 @@ const Games = () => {
 		} else {
 			router.push('/login')
 		}
-
 		// Загружаем состояние из Local Storage
 		dispatch(loadStateFromLocalStorage())
-
 		// Загружаем пользовательские сценарии из localStorage
 		const savedScripts = localStorage.getItem('userScripts')
 		if (savedScripts) {
@@ -64,14 +61,11 @@ const Games = () => {
 	const handleRunScript = () => {
 		const formattedScript = script.replace(/\s+/g, '-').toLowerCase()
 		dispatch(setImage(imagePath)) // Устанавливаем путь к картинке
-
 		// Добавляем новый сценарий в состояние
 		const newScript = { text: script, image: imagePath || null }
 		const updatedScripts = [...userScripts, newScript]
-
 		setUserScripts(updatedScripts)
 		localStorage.setItem('userScripts', JSON.stringify(updatedScripts)) // Сохраняем в localStorage
-
 		router.push(`/games/${formattedScript}`)
 		handleCloseModal()
 	}

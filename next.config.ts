@@ -1,7 +1,19 @@
-import type { NextConfig } from "next";
+const nextConfig = {
+	images: {
+		// Разрешаем все домены
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**', // Все домены
+				port: '', // Порт не указан
+			},
+			{
+				protocol: 'http',
+				hostname: '**', // Все домены
+				port: '', // Порт не указан
+			},
+		],
+	},
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = nextConfig

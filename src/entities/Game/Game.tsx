@@ -140,7 +140,7 @@ const Game = () => {
 					{history.split('\n').map((msg, index) => (
 						<TypeIt
 							options={{ speed: 10, cursor: false }}
-							key={index}
+							key={msg + index} // Убедитесь, что ключ уникален
 							dangerouslySetInnerHTML={{ __html: msg }}
 						/>
 					))}
