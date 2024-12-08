@@ -4,13 +4,12 @@ import {
 	sendMessage,
 	sendMessageFirst,
 } from '@/lib/entities/ai/aiSlice'
-import TypeIt from 'typeit-react'
-
 import { validateToken } from '@/src/utils/validateToken'
 import Cookies from 'js-cookie'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import TypeIt from 'typeit-react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import styles from './Game.module.css'
@@ -28,10 +27,13 @@ const Game = () => {
 	const formattedGameScene =
 		decodedCurrentGameScene.charAt(0).toUpperCase() +
 		decodedCurrentGameScene.slice(1)
+
 	const [inputValue, setInputValue] = useState<string>('')
 	const [isModalOpen, setModalOpen] = useState<boolean>(false)
 	const [history, setHistory] = useState<string>('')
 	const [currentMessage, setCurrentMessage] = useState<string>('')
+	const [chooseAction, setChooseAction] = useState<string>('Сделать')
+	const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
 
 	useEffect(() => {
 		const token = Cookies.get('token')
@@ -57,7 +59,9 @@ const Game = () => {
 			setHistory(prev => prev + responseMessage)
 		}
 	}
+
 	const handleImageBtn = async () => {}
+
 	const handleButtonClick = async () => {
 		const resultAction = await dispatch(getActions(currentMessage))
 		if (getActions.fulfilled.match(resultAction)) {
@@ -68,11 +72,34 @@ const Game = () => {
 	const handleSendMessage = async () => {
 		if (inputValue) {
 			const resultAction = await dispatch(
-				sendMessage({ message: currentMessage, prompt: inputValue })
+				sendMessage({
+					message: currentMessage,
+					prompt: `Вы ${chooseAction}: ` + inputValue,
+				})
 			)
 			if (sendMessage.fulfilled.match(resultAction)) {
 				const responseMessage = resultAction.payload.initial
-				setHistory(prev => prev + '\n' + responseMessage)
+
+				// Определяем текст для истории в зависимости от выбранного действия
+				const actionText =
+					chooseAction === 'Сказать'
+						? 'сказали'
+						: chooseAction === 'Событие'
+						? 'вызвали событие'
+						: 'сделали'
+
+				// Приводим первую букву inputValue к заглавной
+				const formattedInputValue =
+					inputValue.charAt(0).toUpperCase() + inputValue.slice(1)
+
+				setHistory(
+					prev =>
+						prev +
+						'\n\n' +
+						`<p class="${styles.whiteText}">Вы ${actionText}: ${formattedInputValue} </p>` +
+						'\n' +
+						responseMessage
+				)
 				setCurrentMessage(responseMessage)
 				setInputValue('')
 			}
@@ -90,6 +117,15 @@ const Game = () => {
 		setModalOpen(false)
 	}
 
+	const toggleDropdown = () => {
+		setDropdownOpen(!isDropdownOpen)
+	}
+
+	const handleActionSelect = (action: string) => {
+		setChooseAction(action)
+		setDropdownOpen(false)
+	}
+
 	return (
 		<div className={styles.container}>
 			<Header />
@@ -100,12 +136,39 @@ const Game = () => {
 				<div className={styles.historyArea}>
 					{!history && <TypeIt>Печатаем...</TypeIt>}
 					{history.split('\n').map((msg, index) => (
-						<TypeIt options={{ speed: 10, cursor: false }} key={index}>
-							{msg}
-						</TypeIt>
+						<TypeIt
+							options={{ speed: 10, cursor: false }}
+							key={index}
+							dangerouslySetInnerHTML={{ __html: msg }}
+						/>
 					))}
 				</div>
 				<div className={styles.inputContainer}>
+					<button className={styles.actionButton} onClick={toggleDropdown}>
+						{chooseAction}
+					</button>
+					{isDropdownOpen && (
+						<div className={styles.dropdown}>
+							<div
+								className={styles.dropdownItem}
+								onClick={() => handleActionSelect('Сделать')}
+							>
+								Сделать
+							</div>
+							<div
+								className={styles.dropdownItem}
+								onClick={() => handleActionSelect('Сказать')}
+							>
+								Сказать
+							</div>
+							<div
+								className={styles.dropdownItem}
+								onClick={() => handleActionSelect('Событие')}
+							>
+								Событие
+							</div>
+						</div>
+					)}
 					<textarea
 						className={styles.inputField}
 						value={inputValue}

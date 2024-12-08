@@ -108,6 +108,11 @@
 	justify-content: center;
 	align-items: center;
 }
+.whiteText {
+	color: white; /* Белый цвет текста */
+	margin-top: 20px; /* Отступ сверху для отделения от предыдущего текста */
+	font-size: 30px; /* Размер шрифта может быть таким же, как и у других сообщений */
+}
 .modal {
 	background-color: white; /* Цвет фона модального окна */
 	color: black; /* Цвет текста */
@@ -115,4 +120,23 @@
 	border-radius: 10px; /* Закругленные углы */
 	width: 400px; /* Ширина модального окна */
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для модального окна */
+}
+.dropdown {
+	position: absolute;
+	background-color: #242424; /* Темный фон для выпадающего списка */
+	border-radius: 5px; /* Закругленные углы */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для выпадающего списка */
+	z-index: 1000; /* Убедитесь, что он отображается поверх других элементов */
+	margin-top: 10px; /* Отступ сверху от кнопки */
+}
+
+.dropdownItem {
+	padding: 10px 15px; /* Отступы внутри элементов списка */
+	color: white; /* Цвет текста */
+	cursor: pointer; /* Указывает, что элемент кликабельный */
+	transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.dropdownItem:hover {
+	background-color: #6b46c1; /* Цвет при наведении */
 }
