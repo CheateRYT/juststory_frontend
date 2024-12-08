@@ -14,6 +14,7 @@
 	justify-content: center;
 }
 .header {
+	padding: 10px;
 	font-size: 35px;
 	color: white; /* Белый цвет заголовка */
 	margin-bottom: 20px;
@@ -57,6 +58,13 @@
 	align-items: center;
 	margin-bottom: 20px;
 	gap: 30px;
+}
+@media (max-width: 768px) {
+	.inputContainer {
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: flex-start; /* или center, в зависимости от вашего дизайна */
+	}
 }
 .inputField {
 	font-size: 24px;

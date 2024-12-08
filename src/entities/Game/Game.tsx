@@ -186,12 +186,12 @@ const Game = () => {
 					<button className={styles.sendButton} onClick={handleSendMessage}>
 						Отправить
 					</button>
-					<button className={styles.actionButton} onClick={handleButtonClick}>
+					{/* <button className={styles.actionButton} onClick={handleButtonClick}>
 						Варианты действий
 					</button>
 					<button className={styles.actionButton} onClick={handleImageBtn}>
 						Картинка
-					</button>
+					</button> */}
 				</div>
 				{isModalOpen && (
 					<div className={styles.modalOverlay}>
