@@ -57,7 +57,7 @@ const Game = () => {
 			setHistory(prev => prev + responseMessage)
 		}
 	}
-
+	const handleImageBtn = async () => {}
 	const handleButtonClick = async () => {
 		const resultAction = await dispatch(getActions(currentMessage))
 		if (getActions.fulfilled.match(resultAction)) {
@@ -100,7 +100,7 @@ const Game = () => {
 				<div className={styles.historyArea}>
 					{!history && <TypeIt>Печатаем...</TypeIt>}
 					{history.split('\n').map((msg, index) => (
-						<TypeIt options={{ speed: 10 }} key={index}>
+						<TypeIt options={{ speed: 10, cursor: false }} key={index}>
 							{msg}
 						</TypeIt>
 					))}
@@ -118,6 +118,9 @@ const Game = () => {
 					</button>
 					<button className={styles.actionButton} onClick={handleButtonClick}>
 						Варианты действий
+					</button>
+					<button className={styles.actionButton} onClick={handleImageBtn}>
+						Картинка
 					</button>
 				</div>
 				{isModalOpen && (
