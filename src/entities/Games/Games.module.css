@@ -63,6 +63,7 @@
 	width: 100%; /* Ширина изображения 100% от карточки */
 	border-radius: 5px; /* Закругленные углы для изображения */
 }
+
 .modalOverlay {
 	position: fixed;
 	top: 0;
@@ -75,9 +76,11 @@
 	align-items: center;
 	animation: fadeIn 0.3s; /* Анимация появления */
 }
+
 .title {
 	font-size: 30px;
 }
+
 .modal {
 	background-color: white; /* Цвет фона модального окна */
 	color: black; /* Цвет текста */
@@ -87,19 +90,19 @@
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для модального окна */
 }
 
-.inputField {
-	width: 100%; /* Ширина инпута */
-	margin: 10px 0; /* Отступы */
-	padding: 10px;
-	border: 1px solid #ccc; /* Граница инпута */
-	border-radius: 5px; /* Закругленные углы */
-}
-
 .textAreaField {
 	width: 100%; /* Ширина текстовой области */
 	margin: 10px 0; /* Отступы */
 	padding: 10px;
 	border: 1px solid #ccc; /* Граница текстовой области */
+	border-radius: 5px; /* Закругленные углы */
+}
+
+.textInputField {
+	width: 100%; /* Ширина инпута */
+	margin: 10px 0; /* Отступы */
+	padding: 10px;
+	border: 1px solid #ccc; /* Граница инпута */
 	border-radius: 5px; /* Закругленные углы */
 }
 
@@ -111,6 +114,7 @@
 	border-radius: 5px; /* Закругленные углы */
 	cursor: pointer; /* Указывает, что элемент кликабельный */
 	transition: background-color 0.3s; /* Плавный переход цвета фона */
+	width: 100%; /* Ширина кнопки на всю ширину */
 }
 
 .runButton:hover {
@@ -125,6 +129,7 @@
 	padding: 10px 20px;
 	border-radius: 5px; /* Закругленные углы */
 	cursor: pointer; /* Указывает, что элемент кликабельный */
+	width: 100%; /* Ширина кнопки на всю ширину */
 }
 
 .closeButton:hover {

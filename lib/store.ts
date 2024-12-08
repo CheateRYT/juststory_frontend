@@ -1,5 +1,6 @@
 // lib/store.ts
 import { configureStore } from '@reduxjs/toolkit'
+import gamesReducer from './entities/games/gamesSlice'
 import {
 	default as aiReducer,
 	default as userReducer,
@@ -10,6 +11,7 @@ export const makeStore = () => {
 		reducer: {
 			user: userReducer,
 			ai: aiReducer,
+			games: gamesReducer,
 		},
 	})
 }
