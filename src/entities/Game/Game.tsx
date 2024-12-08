@@ -17,7 +17,7 @@ import styles from './Game.module.css'
 const Game = () => {
 	const dispatch = useDispatch()
 	const router = useRouter()
-	const { actions, loading, error } = useSelector(state => state.ai)
+	const { actions, loading, error, imagePath } = useSelector(state => state.ai)
 	const params = useParams()
 	const currentGameScene = params.game
 	const decodedCurrentGameScene =
@@ -34,7 +34,7 @@ const Game = () => {
 	const [currentMessage, setCurrentMessage] = useState<string>('')
 	const [chooseAction, setChooseAction] = useState<string>('Сделать')
 	const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
-
+	const [loadingSendMessage, setLoadingSendMessage] = useState<boolean>(false)
 	useEffect(() => {
 		const token = Cookies.get('token')
 		if (token) {
@@ -60,7 +60,12 @@ const Game = () => {
 		}
 	}
 
-	const handleImageBtn = async () => {}
+	const handleImageBtn = async () => {
+		// const resultAction = await dispatch(generateImage(currentMessage))
+		// if (generateImage.fulfilled.match(resultAction)) {
+		// 	setModalOpen(true) // Открываем модальное окно для отображения изображения
+		// }
+	}
 
 	const handleButtonClick = async () => {
 		const resultAction = await dispatch(getActions(currentMessage))
@@ -71,6 +76,7 @@ const Game = () => {
 
 	const handleSendMessage = async () => {
 		if (inputValue) {
+			setLoadingSendMessage(true)
 			const resultAction = await dispatch(
 				sendMessage({
 					message: currentMessage,
@@ -79,19 +85,14 @@ const Game = () => {
 			)
 			if (sendMessage.fulfilled.match(resultAction)) {
 				const responseMessage = resultAction.payload.initial
-
-				// Определяем текст для истории в зависимости от выбранного действия
 				const actionText =
 					chooseAction === 'Сказать'
-						? 'сказали'
+						? 'решили сказать'
 						: chooseAction === 'Событие'
 						? 'вызвали событие'
-						: 'сделали'
-
-				// Приводим первую букву inputValue к заглавной
+						: 'выбрали действие'
 				const formattedInputValue =
 					inputValue.charAt(0).toUpperCase() + inputValue.slice(1)
-
 				setHistory(
 					prev =>
 						prev +
@@ -102,6 +103,7 @@ const Game = () => {
 				)
 				setCurrentMessage(responseMessage)
 				setInputValue('')
+				setLoadingSendMessage(false)
 			}
 		}
 	}
@@ -142,6 +144,11 @@ const Game = () => {
 							dangerouslySetInnerHTML={{ __html: msg }}
 						/>
 					))}
+					{loadingSendMessage && (
+						<TypeIt options={{ speed: 30 }} className={styles.whiteText}>
+							<p>Печатаем продолжение истории...</p>
+						</TypeIt>
+					)}
 				</div>
 				<div className={styles.inputContainer}>
 					<button className={styles.actionButton} onClick={toggleDropdown}>
@@ -201,6 +208,9 @@ const Game = () => {
 									{action}
 								</button>
 							))}
+							{imagePath && (
+								<img src={imagePath} alt='Сгенерированное изображение' />
+							)}
 							<button onClick={closeModal}>Закрыть</button>
 						</div>
 					</div>

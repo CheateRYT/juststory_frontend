@@ -8,6 +8,7 @@ interface AIState {
 	loading: boolean
 	error: string | null
 	message: string | null // Добавляем состояние для полученного сообщения
+	imagePath: string | null // Добавляем состояние для пути к изображению
 }
 
 const initialState: AIState = {
@@ -15,6 +16,7 @@ const initialState: AIState = {
 	loading: false,
 	error: null,
 	message: null, // Изначально сообщение равно null
+	imagePath: null, // Изначально путь к изображению равен null
 }
 
 // Асинхронное действие для получения действий
@@ -57,6 +59,18 @@ export const sendMessage = createAsyncThunk<
 	return response.data // Возвращаем ответ от сервера
 })
 
+// Асинхронное действие для генерации изображения
+export const generateImage = createAsyncThunk<string, string>(
+	'ai/generateImage',
+	async prompt => {
+		const response = await axios.post(`${backendApiUrl}/ai/generate-img`, {
+			prompt,
+		})
+		console.log('generateImage response:', response.data) // Логируем ответ
+		return response.data.imagePath // Возвращаем путь к изображению
+	}
+)
+
 const aiSlice = createSlice({
 	name: 'ai',
 	initialState,
@@ -98,6 +112,18 @@ const aiSlice = createSlice({
 			.addCase(sendMessage.rejected, (state, action) => {
 				state.loading = false
 				state.error = action.error.message || 'Ошибка отправки сообщения'
+			})
+			.addCase(generateImage.pending, state => {
+				state.loading = true
+				state.error = null
+			})
+			.addCase(generateImage.fulfilled, (state, action) => {
+				state.loading = false
+				state.imagePath = action.payload // Сохраняем путь к изображению
+			})
+			.addCase(generateImage.rejected, (state, action) => {
+				state.loading = false
+				state.error = action.error.message || 'Ошибка генерации изображения'
 			})
 	},
 })
