@@ -4,6 +4,8 @@ import {
 	sendMessage,
 	sendMessageFirst,
 } from '@/lib/entities/ai/aiSlice'
+import TypeIt from 'typeit-react'
+
 import { validateToken } from '@/src/utils/validateToken'
 import Cookies from 'js-cookie'
 import { useParams, useRouter } from 'next/navigation'
@@ -28,7 +30,7 @@ const Game = () => {
 		decodedCurrentGameScene.slice(1)
 	const [inputValue, setInputValue] = useState<string>('')
 	const [isModalOpen, setModalOpen] = useState<boolean>(false)
-	const [history, setHistory] = useState<string>('Печатаем...')
+	const [history, setHistory] = useState<string>('')
 	const [currentMessage, setCurrentMessage] = useState<string>('')
 
 	useEffect(() => {
@@ -70,7 +72,7 @@ const Game = () => {
 			)
 			if (sendMessage.fulfilled.match(resultAction)) {
 				const responseMessage = resultAction.payload.initial
-				setHistory(prev => prev + responseMessage)
+				setHistory(prev => prev + '\n' + responseMessage)
 				setCurrentMessage(responseMessage)
 				setInputValue('')
 			}
@@ -96,8 +98,11 @@ const Game = () => {
 					Игровой сценарий: {formattedGameScene}
 				</h1>
 				<div className={styles.historyArea}>
+					{!history && <TypeIt>Печатаем...</TypeIt>}
 					{history.split('\n').map((msg, index) => (
-						<p key={index}>{msg}</p>
+						<TypeIt options={{ speed: 10 }} key={index}>
+							{msg}
+						</TypeIt>
 					))}
 				</div>
 				<div className={styles.inputContainer}>
