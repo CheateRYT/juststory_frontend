@@ -2,8 +2,16 @@ import { backendApiUrl } from "@/src/utils/backendApiUrl";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
+
 interface UserState {
-  user: null | { login: string };
+  user: null | {
+    login: string;
+    name: string;
+    role: string;
+    subscription: boolean;
+    subBuyTime: Date | null;
+    subEndTime: Date | null;
+  };
   loading: boolean;
   error: string | null;
 }
@@ -31,12 +39,27 @@ export const loginUser = createAsyncThunk<
   return response.data;
 });
 
+// Новый thunk для получения данных пользователя
+export const getUserProfile = createAsyncThunk<UserState["user"], void>(
+  "user/getUserProfile",
+  async () => {
+    const token = Cookies.get("token");
+    const response = await axios.get(`${backendApiUrl}/user/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data.userDetails;
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // Регистрация пользователя
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -49,6 +72,7 @@ const userSlice = createSlice({
         state.loading = false;
         state.error = action.error.message || "Ошибка регистрации";
       })
+      // Вход пользователя
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -60,6 +84,20 @@ const userSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Вы ввели неправильные данные!";
+      })
+      // Получение данных пользователя
+      .addCase(getUserProfile.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getUserProfile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(getUserProfile.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.error.message || "Ошибка получения данных пользователя";
       });
   },
 });
