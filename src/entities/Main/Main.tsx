@@ -7,23 +7,12 @@ import Header from "../Header/Header";
 import styles from "./Main.module.css";
 import { validateToken } from "../../utils/validateToken";
 const Main = () => {
+  const token = Cookies.get("token");
   const [showText, setShowText] = useState(false);
   const [showAIBlock, setShowAIBlock] = useState(false);
   const [showTariffs, setShowTariffs] = useState(false);
   const [isTokenValid, setIsTokenValid] = useState(false);
   const router = useRouter(); // Инициализируем router
-  useEffect(() => {
-    const token = Cookies.get("token");
-    if (token) {
-      validateToken(token).then((valid) => {
-        if (!valid) {
-          router.push("/login");
-        }
-      });
-    } else {
-      router.push("/login");
-    }
-  }, [router]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
