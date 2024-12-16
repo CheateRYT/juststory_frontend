@@ -1,4 +1,3 @@
-/* Profile.module.css */
 .container {
   font-family: var(--font-geist-monomakh), Arial, sans-serif;
   background-color: black;
@@ -21,75 +20,6 @@
   font-size: 50px; /* Увеличен размер шрифта заголовка */
   color: white; /* Белый цвет заголовка */
   margin-bottom: 30px; /* Увеличен отступ снизу */
-}
-
-.profileInfo {
-  background-color: #242424; /* Темный фон */
-  color: #6b46c1; /* Фиолетовый текст */
-  width: 100%; /* Ширина 100% */
-  max-width: 90%; /* Максимальная ширина 90% */
-  padding: 30px; /* Увеличены отступы внутри блока */
-  border-radius: 10px; /* Закругленные углы */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для блока профиля */
-  font-size: 24px; /* Увеличен размер шрифта для информации профиля */
-}
-
-.logoutButton {
-  background-color: #6b46c1; /* Фиолетовый цвет */
-  color: white; /* Белый текст */
-  border: none;
-  padding: 15px 30px; /* Увеличены отступы для кнопки */
-  font-size: 28px; /* Увеличен размер шрифта кнопки */
-  border-radius: 5px; /* Закругленные углы */
-  cursor: pointer; /* Указывает, что элемент кликабельный */
-  transition: background-color 0.3s; /* Плавный переход цвета фона */
-  margin-top: 30px; /* Увеличен отступ сверху */
-}
-
-.logoutButton:hover {
-  background-color: #805ad5; /* Цвет при наведении */
-}
-
-/* Медиа-запросы для адаптивности */
-@media (max-width: 768px) {
-  .header {
-    font-size: 40px; /* Уменьшение размера заголовка на мобильных устройствах */
-    margin-bottom: 20px; /* Уменьшение отступа снизу */
-  }
-
-  .profileInfo {
-    font-size: 20px; /* Уменьшение размера шрифта для информации профиля на мобильных устройствах */
-    padding: 20px; /* Уменьшение отступов внутри блока */
-  }
-
-  .logoutButton {
-    font-size: 24px; /* Уменьшение размера шрифта кнопки на мобильных устройствах */
-    padding: 10px 20px; /* Уменьшение отступов для кнопки */
-  }
-}
-/* Profile.module.css */
-.container {
-  font-family: var(--font-geist-monomakh), Arial, sans-serif;
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* Задает высоту на всю высоту экрана */
-}
-
-.profileContent {
-  flex: 1; /* Заполняет оставшееся пространство между Header и Footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.header {
-  padding: 20px;
-  font-size: 50px;
-  color: white; /* Белый цвет заголовка */
-  margin-bottom: 30px;
 }
 
 .profileInfo {
@@ -133,38 +63,7 @@
 .updateButton:hover {
   background-color: #805ad5; /* Цвет при наведении */
 }
-/* Profile.module.css */
-.container {
-  font-family: var(--font-geist-monomakh), Arial, sans-serif;
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* Задает высоту на всю высоту экрана */
-}
-.profileContent {
-  flex: 1; /* Заполняет оставшееся пространство между Header и Footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.header {
-  padding: 20px; /* Увеличен отступ */
-  font-size: 50px; /* Увеличен размер шрифта заголовка */
-  color: white; /* Белый цвет заголовка */
-  margin-bottom: 30px; /* Увеличен отступ снизу */
-}
-.profileInfo {
-  background-color: #242424; /* Темный фон */
-  color: #6b46c1; /* Фиолетовый текст */
-  width: 100%; /* Ширина 100% */
-  max-width: 90%; /* Максимальная ширина 90% */
-  padding: 30px; /* Увеличены отступы внутри блока */
-  border-radius: 10px; /* Закругленные углы */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для блока профиля */
-  font-size: 24px; /* Увеличен размер шрифта для информации профиля */
-}
+
 .logoutButton {
   background-color: #6b46c1; /* Фиолетовый цвет */
   color: white; /* Белый текст */
@@ -176,10 +75,43 @@
   transition: background-color 0.3s; /* Плавный переход цвета фона */
   margin-top: 30px; /* Увеличен отступ сверху */
 }
+
 .logoutButton:hover {
   background-color: #805ad5; /* Цвет при наведении */
 }
-/* Стили для успешного и неуспешного обновления */
+
+/* Стили для модального окна */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #1a1a1a; /* Темно-серый фон */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 500px;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+}
+
 .success {
   border: 2px solid green; /* Зеленая граница для успешного обновления */
 }

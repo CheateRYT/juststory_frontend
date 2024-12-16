@@ -1,9 +1,7 @@
+import BuySub from "@/src/entities/BuySub/BuySub";
+
 const page = () => {
-  return (
-    <div>
-      <h1>BuySub</h1>
-    </div>
-  );
+  return <BuySub />;
 };
 
 export default page;
