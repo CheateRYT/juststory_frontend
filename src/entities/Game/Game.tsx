@@ -18,7 +18,7 @@ const Game = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { actions, loading, error, imagePath } = useSelector(
-    (state) => state.ai
+    (state: any) => state.ai // Указываем тип состояния
   );
   const params = useParams();
   const currentGameScene = params.game;
@@ -29,7 +29,6 @@ const Game = () => {
   const formattedGameScene =
     decodedCurrentGameScene.charAt(0).toUpperCase() +
     decodedCurrentGameScene.slice(1);
-
   const [inputValue, setInputValue] = useState<string>("");
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [history, setHistory] = useState<string>("");
@@ -37,6 +36,7 @@ const Game = () => {
   const [chooseAction, setChooseAction] = useState<string>("Сделать");
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [loadingSendMessage, setLoadingSendMessage] = useState<boolean>(false);
+
   useEffect(() => {
     const token = Cookies.get("token");
     if (token) {
@@ -62,13 +62,6 @@ const Game = () => {
       setHistory("");
       setHistory((prev) => prev + responseMessage);
     }
-  };
-
-  const handleImageBtn = async () => {
-    // const resultAction = await dispatch(generateImage(currentMessage))
-    // if (generateImage.fulfilled.match(resultAction)) {
-    // 	setModalOpen(true) // Открываем модальное окно для отображения изображения
-    // }
   };
 
   const handleButtonClick = async () => {
@@ -190,12 +183,6 @@ const Game = () => {
           <button className={styles.sendButton} onClick={handleSendMessage}>
             Отправить
           </button>
-          {/* <button className={styles.actionButton} onClick={handleButtonClick}>
-						Варианты действий
-					</button>
-					<button className={styles.actionButton} onClick={handleImageBtn}>
-						Картинка
-					</button> */}
         </div>
         {isModalOpen && (
           <div className={styles.modalOverlay}>
@@ -203,11 +190,11 @@ const Game = () => {
               <h2>Модальное окно</h2>
               {loading && <p>Загрузка...</p>}
               {error && <p>{error}</p>}
-              {actions.map((action, index) => (
+              {actions.map((action: string, index: number) => (
                 <button
                   key={index}
                   className={styles.actionButton}
-                  onClick={() => handleButtonClick(action)}
+                  onClick={() => handleButtonClick()}
                 >
                   {action}
                 </button>

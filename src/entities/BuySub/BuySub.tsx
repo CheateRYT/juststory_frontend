@@ -7,20 +7,28 @@ import { useRouter } from "next/navigation";
 import { backendApiUrl } from "@/src/utils/backendApiUrl";
 import Header from "../Header/Header";
 
-const BuySub = () => {
-  const [subscriptions, setSubscriptions] = useState([]);
+interface Subscription {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+}
+
+const BuySub: React.FC = () => {
+  const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [selectedSubscriptionId, setSelectedSubscriptionId] = useState<
     number | null
   >(null);
-  const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [loading, setLoading] = useState<boolean>(true); // Состояние загрузки
   const router = useRouter();
 
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const response = await axios.get(`${backendApiUrl}/subscription`);
-        setSubscriptions(response.data);+
-        
+        const response = await axios.get<Subscription[]>(
+          `${backendApiUrl}/subscription`
+        );
+        setSubscriptions(response.data);
       } catch (error) {
         console.error("Ошибка при получении подписок:", error);
       } finally {
@@ -56,10 +64,11 @@ const BuySub = () => {
       } else {
         alert("Ошибка при покупке подписки: " + response.data.message);
       }
-    } catch (error) {
+    } catch (error: any) {
+      // Указываем тип error как any
       alert(
-        "Ошибка при покупке подписки: " + error.response?.data?.message ||
-          error.message
+        "Ошибка при покупке подписки: " +
+          (error.response?.data?.message || error.message)
       );
     }
   };
