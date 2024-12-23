@@ -12,7 +12,7 @@ const Main = () => {
   const [showAIBlock, setShowAIBlock] = useState(false);
   const [showTariffs, setShowTariffs] = useState(false);
   const [isTokenValid, setIsTokenValid] = useState(false);
-  const router = useRouter(); // Инициализируем router
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
