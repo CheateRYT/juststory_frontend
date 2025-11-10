@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 import { loginUser } from "../../../lib/entities/user/userSlice";
 import { useAppDispatch } from "../../../lib/store";
 import styles from "./Login.module.css";
@@ -12,6 +13,7 @@ const Login: React.FC = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const resultAction = await dispatch(loginUser({ login, password }));
@@ -24,42 +26,57 @@ const Login: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.formContainer}>
-        <h1 className={styles.title}>Вход</h1>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Логин"
-            className={`${styles.input} ${error ? styles.error : ""}`}
-            value={login}
-            onChange={(e) => {
-              setLogin(e.target.value);
-              setError(null);
-            }}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Пароль"
-            className={`${styles.input} ${error ? styles.error : ""}`}
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setError(null);
-            }}
-            required
-          />
-          {error && <p className={styles.errorMessage}>{error}</p>}{" "}
-          <button type="submit" className={styles.button}>
-            Войти
-          </button>
-        </form>
-        <p className={styles.registerText}>
-          Нет аккаунта?{" "}
-          <Link href="/register" className={styles.link}>
-            Зарегистрироваться
-          </Link>
-        </p>
+      <div className={styles.authLayout}>
+        <div className={styles.leftPane}>
+          <div className={styles.brandBox}>
+            <h2 className={styles.brandTitle}>Добро пожаловать</h2>
+            <p className={styles.brandSubtitle}>Текстовые приключения на ИИ</p>
+          </div>
+          <ul className={styles.featureList}>
+            <li><SparklesIcon className={styles.featureIcon} />Бесконечные сценарии</li>
+            <li><SparklesIcon className={styles.featureIcon} />Создание миров и персонажей</li>
+            <li><SparklesIcon className={styles.featureIcon} />Сохранение прогресса</li>
+          </ul>
+          
+        </div>
+
+        <div className={styles.rightPane}>
+          <div className={styles.formHeader}>
+            <h1 className={styles.title}>Вход</h1>
+            <p className={styles.helper}>Добро пожаловать</p>
+          </div>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Логин"
+              className={`${styles.input} ${error ? styles.error : ""}`}
+              value={login}
+              onChange={(e) => {
+                setLogin(e.target.value);
+                setError(null);
+              }}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Пароль"
+              className={`${styles.input} ${error ? styles.error : ""}`}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(null);
+              }}
+              required
+            />
+
+            {error && <p className={styles.errorMessage}>{error}</p>}
+            <button type="submit" className={styles.button}>Войти</button>
+          </form>
+
+          <p className={styles.registerText}>
+            Нет аккаунта? <Link href="/register" className={styles.link}>Зарегистрироваться</Link>
+          </p>
+        </div>
       </div>
       <footer className={styles.footer}>JustStroy powered by GigaChat</footer>
     </div>

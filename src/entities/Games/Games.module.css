@@ -1,146 +1,68 @@
 .container {
-	font-family: var(--font-geist-monomakh), Arial, sans-serif;
-	background-color: black;
-	color: white;
-	height: 100vh; /* Задает высоту на всю высоту экрана */
+	background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+	color: #e5e5e5;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
-.header {
-	margin-top: 20px;
-	display: flex;
-	font-size: 24px;
-	justify-content: right; /* Выравнивание текста и кнопки */
-	align-items: center;
-}
-
-.createButton {
-	background-color: #6b46c1; /* Фиолетовый цвет */
-	color: white; /* Белый текст */
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px; /* Закругленные углы */
-	cursor: pointer; /* Указывает, что элемент кликабельный */
-	transition: background-color 0.3s; /* Плавный переход цвета фона */
-}
-
-.createButton:hover {
-	background-color: #805ad5; /* Цвет при наведении */
-}
-
-.cardsContainer {
+.layout {
 	display: grid;
-	grid-template-columns: repeat(
-		auto-fill,
-		minmax(300px, 1fr)
-	); /* Адаптивная сетка карточек */
-	gap: 15px; /* Промежуток между карточками */
-	margin: 20px;
-}
-
-.card {
-	background-color: #6b46c1; /* Фиолетовый цвет */
-	color: white; /* Белый текст */
-	padding: 10px;
-	border-radius: 10px; /* Закругленные углы */
-	text-align: center;
-	display: flex;
-	transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-	font-size: 22px;
-	flex-direction: column;
-	align-items: center;
-}
-
-.card:hover {
-	cursor: pointer;
-	background-color: #805ad5; /* Цвет при наведении */
-	transform: scale(1.05); /* Увеличение карточки при наведении */
-	box-shadow: 0 4px 20px rgba(107, 70, 193, 0.5); /* Тень фиолетового цвета */
-}
-
-.cardImage {
-	width: 100%; /* Ширина изображения 100% от карточки */
-	border-radius: 5px; /* Закругленные углы для изображения */
-}
-
-.modalOverlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	animation: fadeIn 0.3s; /* Анимация появления */
-}
-
-.title {
-	font-size: 30px;
-}
-
-.modal {
-	background-color: white; /* Цвет фона модального окна */
-	color: black; /* Цвет текста */
+	grid-template-columns: 260px 1fr;
+	gap: 16px;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
 	padding: 20px;
-	border-radius: 10px; /* Закругленные углы */
-	width: 400px; /* Ширина модального окна */
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для модального окна */
 }
 
-.textAreaField {
-	width: 100%; /* Ширина текстовой области */
-	margin: 10px 0; /* Отступы */
-	padding: 10px;
-	border: 1px solid #ccc; /* Граница текстовой области */
-	border-radius: 5px; /* Закругленные углы */
+.sidebar {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	padding: 16px;
+	position: sticky;
+	top: 12px;
+	height: fit-content;
 }
+.sidebarHeader { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.categoryList { list-style: none; padding: 0; margin: 0 0 12px 0; display: grid; gap: 6px; }
+.categoryButton { width: 100%; text-align: left; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #e5e5e5; border-radius: 10px; padding: 8px 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.categoryButton:hover { background: rgba(255,255,255,0.08); }
+.categoryActive { border-color: rgba(139,92,246,0.5); box-shadow: 0 6px 20px rgba(139,92,246,0.18); }
+.categoryIcon { width: 16px; height: 16px; color: #bca6ff; }
 
-.textInputField {
-	width: 100%; /* Ширина инпута */
-	margin: 10px 0; /* Отступы */
-	padding: 10px;
-	border: 1px solid #ccc; /* Граница инпута */
-	border-radius: 5px; /* Закругленные углы */
-}
+.main { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; }
+.searchRow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.searchBox { position: relative; max-width: 520px; width: 100%; }
+.searchIcon { position: absolute; top: 50%; left: 10px; transform: translateY(-50%); width: 18px; height: 18px; color: #cfd0d3; }
+.searchInput { width: 100%; padding: 10px 12px 10px 34px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; outline: none; }
+.searchInput::placeholder { color: #a0a0a0; }
 
-.runButton {
-	background-color: #6b46c1; /* Фиолетовый цвет */
-	color: white; /* Белый текст */
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px; /* Закругленные углы */
-	cursor: pointer; /* Указывает, что элемент кликабельный */
-	transition: background-color 0.3s; /* Плавный переход цвета фона */
-	width: 100%; /* Ширина кнопки на всю ширину */
-}
+.createButton { background: #8b5cf6; color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 10px 14px; border-radius: 10px; cursor: pointer; transition: box-shadow .2s ease, transform .2s ease; width: 100%; }
+.createButton:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(139,92,246,0.25); }
 
-.runButton:hover {
-	background-color: #805ad5; /* Цвет при наведении */
-}
+.cardsContainer { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 
-.closeButton {
-	margin-top: 10px; /* Отступ сверху */
-	background-color: #ccc; /* Цвет кнопки закрытия */
-	color: black; /* Черный текст */
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px; /* Закругленные углы */
-	cursor: pointer; /* Указывает, что элемент кликабельный */
-	width: 100%; /* Ширина кнопки на всю ширину */
-}
+.card { background: rgba(255,255,255,0.03); color: #e5e5e5; padding: 10px; border-radius: 14px; text-align: left; display: flex; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; font-size: 16px; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); }
+.card:hover { cursor: pointer; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(139,92,246,0.15); border-color: rgba(139,92,246,0.5); }
 
-.closeButton:hover {
-	background-color: #bbb; /* Цвет при наведении */
-}
+.cardImage { width: 100%; border-radius: 10px; }
+.cardBody { padding: 8px 4px 2px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cardTitle { margin: 0; font-size: 15px; color: #fff; }
+.pill { background: rgba(139,92,246,0.12); color: #e9ddff; border: 1px solid rgba(139,92,246,0.4); border-radius: 999px; padding: 4px 8px; font-size: 12px; }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
+.modalOverlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; animation: fadeIn 0.3s; }
+.title { font-size: 30px; }
+.modal { background: rgba(20,20,28,0.98); color: #e5e5e5; padding: 20px; border-radius: 14px; width: 420px; border: 1px solid rgba(255,255,255,0.08); }
+
+.textAreaField { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+.textInputField { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+
+.runButton { background: #8b5cf6; color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 10px; cursor: pointer; transition: box-shadow .2s ease, transform .2s ease; width: 100%; }
+.runButton:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(139,92,246,0.25); }
+
+.closeButton { margin-top: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12); padding: 10px 16px; border-radius: 10px; cursor: pointer; width: 100%; }
+.closeButton:hover { border-color: rgba(255,255,255,0.2); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
